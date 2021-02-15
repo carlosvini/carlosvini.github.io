@@ -34,17 +34,12 @@ jobs:
     # successful
     if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
-    # Thank you cypress for providing a container
-    # that works out-of-the-box
-    container: cypress/browsers:node11.13.0-chrome73
-    env:
-      TERM: xterm
 
     steps:
       - uses: actions/checkout@v1
 
       - name: Run E2E tests
-        run: echo 'wow ${{ github.event.deployment_status.target_url }}'
+        run: testim --token ${{ secrets.TESTIM_TOKEN }} --project "4G1CwJHZFbUFxPhGCOmY" --base-url ${{ github.event.deployment_status.target_url }} --grid "Testim-Grid" --suite "GitHub CI"
 
       - name: Set status to "success"
         # The "if" underneath makes sure that this step
