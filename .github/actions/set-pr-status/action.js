@@ -17,7 +17,7 @@ const { sha } = tools.context
 const { state, description } = tools.inputs
 
 tools.github.repos
-  .createStatus({
+  .createCommitStatus({
     owner,
     repo,
     sha,
@@ -32,4 +32,3 @@ tools.github.repos
     tools.log.fatal(error)
     tools.exit.failure()
   })
-  

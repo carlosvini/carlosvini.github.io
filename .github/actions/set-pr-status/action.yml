@@ -1,0 +1,8 @@
+name: Set PR status
+description: Set PR status
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: activity
+  color: white
