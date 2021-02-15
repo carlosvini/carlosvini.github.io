@@ -1,12 +1,13 @@
 FROM node:slim
 
-# The * after package is there to also copy the
-# package-lock.json that should is created when
-# you run `npm install`
+# Copy the package.json and package-lock.json
 COPY package*.json ./
 
+# Install dependencies
 RUN npm ci
 
-COPY action.js /action.js
+# Copy the rest of your action's code
+COPY . .
 
-ENTRYPOINT ["node", "/action.js"]
+# Run `node /index.js`
+ENTRYPOINT ["node", "/index.js"]
