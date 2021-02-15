@@ -38,6 +38,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - run: npm install -g testim
+
       - name: Run E2E tests
         run: testim --token ${{ secrets.TESTIM_TOKEN }} --project "4G1CwJHZFbUFxPhGCOmY" --base-url ${{ github.event.deployment_status.target_url }} --grid "Testim-Grid" --suite "GitHub CI"
 
