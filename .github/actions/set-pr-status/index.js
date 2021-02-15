@@ -23,6 +23,7 @@ tools.github.repos
     sha,
     state,
     description,
+    context: 'Set PR Status',
     target_url: `https://www.github.com/${owner}/${repo}/commit/${sha}/checks`,
   })
   .then(() => {
