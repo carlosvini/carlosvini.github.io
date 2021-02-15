@@ -42,10 +42,10 @@ jobs:
         with:
           node-version: 12
 
-      - run: npm install -g testim
+      - run: npm i -g @testim/testim-cli
 
       - name: Run E2E tests
-        run: npx testim --token ${{ secrets.TESTIM_TOKEN }} --project "4G1CwJHZFbUFxPhGCOmY" --base-url ${{ github.event.deployment_status.target_url }} --grid "Testim-Grid" --suite "GitHub CI"
+        run: testim --token ${{ secrets.TESTIM_TOKEN }} --project "4G1CwJHZFbUFxPhGCOmY" --base-url ${{ github.event.deployment_status.target_url }} --grid "Testim-Grid" --suite "GitHub CI"
 
       - name: Set status to "success"
         # The "if" underneath makes sure that this step
