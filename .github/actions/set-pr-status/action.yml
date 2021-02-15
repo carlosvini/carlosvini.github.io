@@ -1,8 +1,15 @@
 name: Set PR status
 description: Set PR status
+inputs:
+  state:  
+    description: 'PR status state'
+    required: true
+  description:  
+    description: 'PR status description'
+    required: true
 runs:
-  using: docker
-  image: Dockerfile
-branding:
-  icon: activity
-  color: white
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.state }}
+    - ${{ inputs.description }}
