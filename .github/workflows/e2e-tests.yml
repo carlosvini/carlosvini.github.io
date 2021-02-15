@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Set status to "pending"
-        uses: ./.github/actions/set-pr-status
+        uses: ./.github/actions/set-pr-status@test-vercel
         env:
           # You don't need to configure any secrets for this
           # to work. GitHub injects the GITHUB_TOKEN automatically.
