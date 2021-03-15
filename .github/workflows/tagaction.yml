@@ -2,7 +2,7 @@ name: tagaction
 
 on:
   workflow_dispatch:
-  push:
+  create:
     tags:
       - v*.*
 
